@@ -1,2 +1,14 @@
-# Auto detect text files and perform LF normalization
+# Normalize line endings
 * text=auto
+
+# Treat lock files as text for clearer diffs
+package-lock.json text
+pnpm-lock.yaml text
+yarn.lock text
+
+# Images as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary

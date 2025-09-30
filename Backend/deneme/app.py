@@ -8,15 +8,18 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, origins=["http://127.0.0.1:5173", "http://localhost:5173"])
+CORS(app, supports_credentials=True, origins=[os.getenv("FRONTEND_ORIGIN", "http://127.0.0.1:5173"), os.getenv("FRONTEND_ORIGIN_ALT", "http://localhost:5173")])
 
 # --- API KEY'LER ---
-genai.configure(api_key="AIzaSyDhyZi0JrgYoYvkjO3WS4C6Ru8QbmHIyx8")
+genai.configure(api_key=os.getenv("GENAI_KEY"))
 model = genai.GenerativeModel("models/gemini-1.5-flash-latest")
 
-TMDB_API_KEY = "45c39b807f216578a180035495df545e"
+TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 TMDB_BASE_URL = "https://api.themoviedb.org/3"
 
 # --- KLASÖRLER ---
@@ -37,14 +40,16 @@ def allowed_file(filename):
 
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="fırat23",
-        database="mynewdb",
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
         charset='utf8mb4'
     )
 
 def tmdb_request(endpoint, params=None):
+    if not TMDB_API_KEY:
+        return {"results": [], "error": "TMDB_API_KEY eksik"}
     if params is None:
         params = {}
     params['api_key'] = TMDB_API_KEY
@@ -499,4 +504,7 @@ def get_user_reviews(user_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    host = os.getenv('FLASK_HOST', '127.0.0.1')
+    port = int(os.getenv('FLASK_PORT', '5000'))
+    debug = os.getenv('FLASK_DEBUG', '1') == '1'
+    app.run(host=host, port=port, debug=debug)
