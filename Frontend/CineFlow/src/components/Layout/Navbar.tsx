@@ -74,7 +74,11 @@ const Navbar: React.FC = () => {
     <nav className="flex justify-between items-center py-4 px-8 bg-gray-900 shadow-lg">
       <div className="flex items-center space-x-4">
         <Link to="/" className="flex items-center space-x-2 group">
-          <img src="/logo.png" alt="CineFlow" className="h-8 w-auto rounded-sm shadow group-hover:opacity-90 transition" />
+          <div className="h-8 w-8 bg-gradient-to-br from-red-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+            </svg>
+          </div>
           <span className="hidden sm:block text-white font-bold text-lg tracking-tight">CineFlow</span>
         </Link>
         <div className="flex space-x-2">
