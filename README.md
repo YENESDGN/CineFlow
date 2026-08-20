@@ -139,10 +139,3 @@ git push -u origin main
 ## 📜 Lisans
 
 Bu proje **MIT Lisansı** ile sunulmaktadır. Ayrıntılar için `LICENSE` dosyasına bakınız.
-
----
-
----
-
-İstiyorsan sana bunu **dosya halinde (README.md)** oluşturup verebilirim, direkt klasörüne koyabilirsin. İster misin?
-```
