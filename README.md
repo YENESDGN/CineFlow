@@ -142,17 +142,6 @@ Bu proje **MIT Lisansı** ile sunulmaktadır. Ayrıntılar için `LICENSE` dosya
 
 ---
 
-```
-
----
-
-Bu hali:  
-✅ Daha göze hitap ediyor (emoji ve bölümlerle),  
-✅ Özellikleri listeliyor,  
-✅ Yol haritası eklenmiş,  
-✅ Katkı bölümü var,  
-✅ Açıklama daha akıcı.  
-
 ---
 
 İstiyorsan sana bunu **dosya halinde (README.md)** oluşturup verebilirim, direkt klasörüne koyabilirsin. İster misin?
