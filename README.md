@@ -105,15 +105,6 @@ python app.py  # app.py doğrudan çalışıyorsa
 
 ---
 
-## 🛣 Yol Haritası
-
-* [ ] Kullanıcı kimlik doğrulama (JWT / OAuth)
-* [ ] Yorum ve puanlama sistemi
-* [ ] IMDB / TMDB API entegrasyonu
-* [ ] Mobil sürüm (React Native)
-
----
-
 ## 🤝 Katkı
 
 Katkıda bulunmak isteyenler lütfen **fork** ederek geliştirme yapabilir, ardından **pull request** gönderebilir veya **issue** açabilir.
